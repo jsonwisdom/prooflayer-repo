@@ -1,37 +1,11 @@
 {
-  "project": "ztws-v1-alpha",
+  "project": "ztws-v1-mainnet",
   "network": {
-    "name": "Base Sepolia",
-    "chainId": 84532,
-    "registry": "0xRegistryAddressFromScript",
+    "name": "Base Mainnet",
+    "chainId": 8453,
+    "rpc": "https://mainnet.base.org",
+    "registry": "TBD_POST_DEPLOY",
     "ens_root": "jaywisdom.base.eth"
-  },
-  "judicial_anchor": {
-    "safe_address": "0xJudicialSafeAddress",
-    "threshold": 3,
-    "signers": [
-      "0xJudgeKey",
-      "0xCivilLibertiesKey",
-      "0xTechnicalAuditorKey",
-      "0xAgencyHeadKey",
-      "0xSovereignKey"
-    ]
-  },
-  "execution_gate": {
-    "gateway_address": "0xGatewayNodeAddress",
-    "enclave_measurement": "0xMRENCLAVE_HASH_HERE",
-    "platform": "AWS_NITRO",
-    "attestation_ttl": 3600
-  },
-  "vault_l0": {
-    "provider": "GCS",
-    "bucket": "ztws-vault-alpha",
-    "kms_key": "projects/computer-wisdom/locations/us/keyRings/ztws/cryptoKeys/warrant-envelope",
-    "retention_policy": "90_DAYS_LOCKED"
-  },
-  "attestation_binding": {
-    "report_data_rule": "sha256(query_hash || warrant_id)",
-    "pcr_index": "PCR0"
   },
   "execution_rules": {
     "require_warrant_event": true,
