@@ -70,3 +70,47 @@ Status
 · Manifest uploaded to IPFS
 · L1 mirror set on .eth
 · Watchdog verifies records
+
+## Genesis Anchor (Verified Mainnet)
+
+> **Important:** This is a Genesis proof contract, not the ZTWS mainnet registry.  
+> Do not set `ztws.registry.v1` to this address unless explicitly intended.
+
+| Field | Value |
+|-------|-------|
+| **Genesis Contract** | `0x082836b2A8E2a77Cca7DDd9F9fC8eE99F884F58D` |
+| **Genesis Block** | `44202259` |
+| **Anchor ENS** | `jaywisdom.base.eth` |
+| **Network** | Base Mainnet (chainId: 8453) |
+
+### Verification Commands
+
+```bash
+export GENESIS_REGISTRY=0x082836b2A8E2a77Cca7DDd9F9fC8eE99F884F58D
+export GENESIS_BLOCK=44202259
+export BASE_RPC=https://mainnet.base.org
+
+# Verify contract bytecode exists
+cast code $GENESIS_REGISTRY --rpc-url $BASE_RPC
+
+# View genesis logs
+cast logs --address $GENESIS_REGISTRY \
+  --from-block $GENESIS_BLOCK \
+  --to-block $((GENESIS_BLOCK + 50)) \
+  --rpc-url $BASE_RPC
+```
+
+Watchdog Initialization (Genesis Mode)
+
+```bash
+python3 observer/watchdog.py \
+  --registry 0x082836b2A8E2a77Cca7DDd9F9fC8eE99F884F58D \
+  --start-block 44202259
+```
+
+Relationship to ZTWS Registry
+
+· Genesis Contract: Proof-of-existence anchor, immutable, serves as timestamped foundation
+· ZTWS Registry: Future deployment with warrant-first logic, judicial safe integration, and surveillance reform enforcement
+
+The two contracts are independent. ENS ztws.registry.v1 should point to the ZTWS registry once deployed, not the Genesis anchor unless the architecture intentionally merges them.
