@@ -1,5 +1,16 @@
 # ZTWS Launch Checklist — Countdown Mode
 
+> **⚠️ SAFETY: PRIVATE_KEY**
+>
+> The `PRIVATE_KEY` referenced in this checklist must:
+>
+> - Never be committed to this repository
+> - Never be pasted into any file tracked by git
+> - Never be logged, echoed, or written to disk
+> - Exist only in the shell environment during manual deployment
+>
+> If a private key appears in any commit, rotate it immediately.
+
 Use this file as the single run order. Do not skip ahead. If a step is not complete, stop there.
 
 ## 0. Preconditions
